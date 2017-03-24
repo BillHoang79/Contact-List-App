@@ -1,31 +1,52 @@
-var express = require('express')
-var app     = express()
+var express    = require('express')
+var app        = express()
+var mongojs    = require('mongojs')
+var db         = mongojs('contactlist', ['contactlist'])
+var bodyParser = require('body-parser') 
 
 app.use(express.static(__dirname + "/public"))
+app.use(bodyParser.json())
 
 app.get('/contactlist', function (req, res) {
 	console.log("I received a GET request")
 
-	person1 = {
-			name: 'Rick',
-			email: 'rick@gmail.com',
-			number: '(222) 222-2222'
-		},
+	db.contactlist.find(function (err, docs) {
+		console.log(docs)
+		res.json(docs)
+	})
+})
 
-		person2 = {
-			name: 'John',
-			email: 'john@gmail.com',
-			number: '(333) 333-3333'
-		},
+app.post('/contactlist', function (req, res) {
+	console.log(req.body)
+	db.contactlist.insert(req.body, function(err, doc) {
+		res.json(doc)
+	}) 
+})
 
-		person3 = {
-			name: 'Hilda',
-			email: 'hilda@gmail.com',
-			number: '(444) 444-4444'
-		}
+app.delete('/contactlist/:id', function (req, res) {
+	var id = req.params.id
+	console.log(id)
+	db.contactlist.remove({_id: mongojs.Object(id)}, function (err, doc) {
+		res.json(doc)
+	})
+})
 
-		var contactlist = [person1, person2, person3]
-		res.json(contactlist)
+app.get('/contactlist/:id', function (req, res) {
+	var id = req.params.id
+	console.log(id)
+	db.contactlist.fineOne({_id: mongojs.Object(id)}, function (err, doc) {
+		res.json(doc)
+	})
+})
+
+app.put('/contactlist/:id', function (req, res) {
+	var id = req.params.id
+	console.log(req.body.name)
+	db.contactlist.findAndModify({query: {_id: mongojs.Object(id)},
+		update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
+		new: true}, function (err, doc) {
+			res.json(doc)
+	})
 })
     
 app.listen(3000)
