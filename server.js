@@ -26,7 +26,7 @@ app.post('/contactlist', function (req, res) {
 app.delete('/contactlist/:id', function (req, res) {
 	var id = req.params.id
 	console.log(id)
-	db.contactlist.remove({_id: mongojs.Object(id)}, function (err, doc) {
+	db.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
 		res.json(doc)
 	})
 })
@@ -34,7 +34,7 @@ app.delete('/contactlist/:id', function (req, res) {
 app.get('/contactlist/:id', function (req, res) {
 	var id = req.params.id
 	console.log(id)
-	db.contactlist.fineOne({_id: mongojs.Object(id)}, function (err, doc) {
+	db.contactlist.fineOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
 		res.json(doc)
 	})
 })

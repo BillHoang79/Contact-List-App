@@ -5,7 +5,7 @@ myApp.controller('AppCtrl',['$scope','$http',
 
 var refesh = function() {
 	$http.get('/contactlist').success(function(response) {
-		console.log("I got the data")
+		console.log("I got the data I requested")
 		$scope.contactlist = response
 		$scope.contact = ""
 	})
