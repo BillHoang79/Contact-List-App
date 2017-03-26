@@ -21,7 +21,7 @@ $scope.addContact = function() {
 	})
 
 }
-
+  
 $scope.remove = function(id) {
 	console.log(id)
 	$http.delete('/contactlist/' + id).success(function(response) {
@@ -44,7 +44,7 @@ $scope.update = function() {
 }
 
 $scope.deselect = function() {
-	$scope.contact = " "
+	$scope.contact = ""
 }
 
 	}])
