@@ -9,7 +9,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
             $scope.contact = ""
         })
     }
-  
+     
     refresh()
 
     $scope.addContact = function() {

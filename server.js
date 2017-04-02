@@ -15,7 +15,7 @@ app.get('/contactlist', function(req, res) {
         console.log(docs)
         res.json(docs)
     })
-})
+})   
   
 app.post('/contactlist', function(req, res) {
     req.body._id = 0
