@@ -3,7 +3,7 @@ var app = express()
 var mongojs = require('mongojs')
 var db = mongojs('contactlist', ['contactlist'])
 var bodyParser = require('body-parser')
-var PORT = Number(process.env.PORT || 3000)
+var port = Number(process.env.PORT || 3000)
 
 
 
