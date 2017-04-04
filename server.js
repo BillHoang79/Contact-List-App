@@ -4,7 +4,6 @@ var mongojs = require('mongojs')
 var db = mongojs('contactlist', ['contactlist'])
 var bodyParser = require('body-parser')
 var port = Number(process.env.PORT || 8000)
-var angular = require('angular')
 
 
 
