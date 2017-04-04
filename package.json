@@ -7,7 +7,7 @@
     "express": "^4.13.4",
     "mongojs": "^2.3.0"
   },
-  "devDependencies": {},
+  "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
