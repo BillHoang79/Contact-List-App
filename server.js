@@ -3,7 +3,7 @@ var app = express()
 var mongojs = require('mongojs')
 var db = mongojs('contactlist', ['contactlist'])
 var bodyParser = require('body-parser')
-var PORT = process.env.PORT || 8000
+var PORT = Number(process.env.PORT || 3000)
 
 
 
@@ -55,6 +55,5 @@ app.put('/contactlist/:id', function(req, res) {
     })
 })
 
-app.listen(port, function() {
-    console.log("App is running on port " + port)
-})
+app.listen(port)
+    console.log("App is running on port 3000")
