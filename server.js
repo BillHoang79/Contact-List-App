@@ -56,5 +56,5 @@ app.put('/contactlist/:id', function(req, res) {
 })
 
 server.listen(port, function() {
-    console.log("App is running on port " + port);
+    console.log("App is running on port " + port)
 })

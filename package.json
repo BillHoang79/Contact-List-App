@@ -1,7 +1,6 @@
 {
   "name": "contacts",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -14,6 +13,15 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillHoang79/contactlistapp.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/BillHoang79/contactlistapp/issues"
+  },
+  "homepage": "https://github.com/BillHoang79/contactlistapp#readme",
+  "description": ""
 }
-  
