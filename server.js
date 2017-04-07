@@ -19,7 +19,7 @@ app.get('/contactlist', function(req, res) {
         res.json(docs)
     })
 })   
-  
+     
 app.post('/contactlist', function(req, res) {
     req.body._id = 0
     db.contactlist.insert(req.body, function(err, doc) {
