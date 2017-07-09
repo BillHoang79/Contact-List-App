@@ -1,6 +1,5 @@
 var myApp = angular.module('myApp', []);
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
-    console.log("Hello World from controller!!!");
 
     var refresh = function() {
         $http.get('/contactlist').success(function(response) {
@@ -17,11 +16,11 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
         if ($scope.contact._id !== null) {
             $scope.contact._id = null;
         };
+        
         $http.post('/contactlist', $scope.contact).success(function(response) {
             console.log(response);
             refresh();
         });
-
     };
 
     $scope.remove = function(id) {
